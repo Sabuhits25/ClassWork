@@ -1,5 +1,5 @@
 ﻿using ClassWork.Models;
-using ConsoleAppWithEFCore.Data;
+using ClassWork.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,6 +24,8 @@ namespace ClassWork.Services
                 var categories = await context.Categories.AsNoTracking().ToListAsync();
             return categories;
         }
+
+        
     }
 
    

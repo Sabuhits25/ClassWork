@@ -1,5 +1,5 @@
 ﻿using ClassWork.Models.ConsoleAppWithEFCore.Models;
-using ConsoleAppWithEFCore.Data;
+using ClassWork.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClassWork.Services
@@ -8,16 +8,16 @@ namespace ClassWork.Services
     {
         private Product products;
 
-        public async Task CreateAsync(Product student)
+        public async Task CreateAsync(Product product)
         {
             AppDbContext context = new AppDbContext();
-            await context.Product.AddAsync(products);
+            await context.Product.AddAsync(product);
             await context.SaveChangesAsync();
         }
-        
+
         public async Task<List<Product>> GetAllAsync()
         {
-         AppDbContext context = new AppDbContext();
+            AppDbContext context = new AppDbContext();
 
             var students = await context.Product.Include(s => s.Category).AsNoTracking().ToListAsync();
             return students;
@@ -30,5 +30,16 @@ namespace ClassWork.Services
             return student;
         }
 
+
+        public async Task DeleteAsync(int id)
+        {
+            AppDbContext contexts = new AppDbContext();
+            var category = await contexts.Product.FindAsync(id);
+            if (category != null)
+            {
+                contexts.Product.Remove(products);
+                await contexts.SaveChangesAsync();
+            }
+        }
     }
 }

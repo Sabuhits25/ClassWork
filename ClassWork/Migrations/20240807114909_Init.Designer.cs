@@ -2,9 +2,7 @@
 using ClassWork.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
@@ -12,7 +10,7 @@ namespace ClassWork.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20240807114909_Init")]
-    partial class Init
+    partial class Init  
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -3,7 +3,7 @@ using ClassWork.Models.ConsoleAppWithEFCore.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace ConsoleAppWithEFCore.Data
+namespace ClassWork.Data
 {
     public class AppDbContext : DbContext
     {
